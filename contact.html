@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Contact Tim Pearson Counselling to book a session in Adelaide or online. Reach out via phone, email, or the contact form." />
+  <meta name="keywords" content="contact counsellor Adelaide, book counselling session, online counselling Australia, Tim Pearson Counselling contact" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:image" content="images/background.svg" />
+  <meta name="twitter:image" content="images/background.svg" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
   <title>Contact | Tim Pearson Counselling</title>
 <style>
   :root {
@@ -782,9 +788,7 @@
 
     .footer-badge-float {
       width: 120px;
-      margin-top: 16px;
-      margin-left: 0;
-      margin-right: 0;
+      margin: 16px auto 0;
     }
 
     /* Responsive mobile styles for newsletter */
@@ -851,7 +855,7 @@
   <main class="hero">
     <header class="topbar">
       <a class="brand" href="index.html">
-
+        <img src="images/logo.svg" alt="Tim Pearson Counselling logo" />
       </a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label class="nav-toggle-label" for="nav-toggle" aria-label="Toggle navigation">
@@ -872,26 +876,43 @@
     <div class="contact-inner">
       <div class="contact-card">
         <h2>Send a Message</h2>
-        <form action="#" method="post">
+        <form
+          action="https://gmail.us19.list-manage.com/subscribe/post?u=6de2c0fffec751387134930e2&amp;id=caef143b96&amp;f_id=002140e4f0"
+          method="post"
+          target="mc_contact_iframe"
+          onsubmit="return handleContactSubmit(this);"
+        >
           <div class="form-group">
             <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+            <input type="text" id="name" name="FNAME" placeholder="Enter your full name" required />
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email address" required />
+            <input type="email" id="email" name="EMAIL" placeholder="Enter your email address" required />
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="Enter your phone number (optional)" />
+            <input type="tel" id="phone" name="PHONE" placeholder="Enter your phone number" required />
           </div>
           <!-- removed Area of Interest select field -->
           <div class="form-group message-group">
             <label for="message">Your Message</label>
-            <textarea id="message" name="message" placeholder="Tell me a little about what you're seeking support with..." required></textarea>
+            <textarea id="message" name="LNAME" placeholder="Tell me a little about what you're seeking support with..." required></textarea>
+          </div>
+          <div style="position: absolute; left: -5000px;" aria-hidden="true">
+            <input type="text" name="b_6de2c0fffec751387134930e2_caef143b96" tabindex="-1" value="" />
           </div>
           <button type="submit" class="submit-btn">Send Message</button>
         </form>
+        <iframe
+          title="Mailchimp contact form"
+          name="mc_contact_iframe"
+          id="mc_contact_iframe"
+          style="display: none;"
+        ></iframe>
+        <p id="contact-success" style="display: none; margin-top: 16px;">
+          Thanks for your message. I will be in touch soon.
+        </p>
       </div>
 
       <div class="info-card">
@@ -1051,7 +1072,7 @@
       </p>
       <form
         class="newsletter-form"
-        action="https://gmail.us22.list-manage.com/subscribe/post?u=0f29543d55c2bf69196b429d4&amp;id=c130dfe39f&amp;f_id=0082c2e1f0"
+        action="https://gmail.us19.list-manage.com/subscribe/post?u=6de2c0fffec751387134930e2&amp;id=caef143b96&amp;f_id=003c40e4f0"
         method="post"
         target="mc_hidden_iframe"
         onsubmit="return handleNewsletterSubmit();"
@@ -1066,7 +1087,7 @@
           aria-label="Email address for newsletter"
         />
         <div style="position: absolute; left: -5000px;" aria-hidden="true">
-          <input type="text" name="b_0f29543d55c2bf69196b429d4_c130dfe39f" tabindex="-1" value="" />
+          <input type="text" name="b_6de2c0fffec751387134930e2_caef143b96" tabindex="-1" value="" />
         </div>
         <button type="submit" class="newsletter-button">Subscribe</button>
       </form>
@@ -1086,9 +1107,11 @@
     <div class="footer-inner">
       <div class="footer-grid">
         <div class="footer-section">
-          <img src="images/logo.svg" alt="Tim Pearson Counselling" class="footer-logo" />
+          <a href="index.html" aria-label="Back to home">
+            <img src="images/logo.svg" alt="Tim Pearson Counselling" class="footer-logo" />
+          </a>
           <p class="footer-text">
-            A compassionate counselling service based in Adelaide <br> Offering both face-to-face and online sessions across Australia.
+            A counselling service based in Adelaide, <br> offering both face-to-face and online sessions across Australia.
           </p>
         </div>
         <div class="footer-section">
@@ -1122,6 +1145,20 @@
   </footer>
 
   <script>
+    function handleContactSubmit(form) {
+      if (!form || !form.checkValidity()) {
+        if (form && form.reportValidity) {
+          form.reportValidity();
+        }
+        return false;
+      }
+      var message = document.getElementById("contact-success");
+      if (message) {
+        message.style.display = "block";
+      }
+      return true;
+    }
+
     function handleNewsletterSubmit() {
       var message = document.getElementById("newsletter-success");
       if (message) {
@@ -1149,3 +1186,4 @@
   </script>
 </body>
 </html>
+

@@ -3,6 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="An evidence-based counselling service focused on working with you to support your needs, values, and goals." />
+  <meta name="keywords" content="counselling Adelaide, online counselling Australia, anxiety counselling, grief counselling, relationship counselling, separation support, Tim Pearson Counselling" />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:image" content="images/background.svg" />
+  <meta name="twitter:image" content="images/background.svg" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
   <title>Tim Pearson Counselling</title>
 <style>
   :root {
@@ -319,6 +325,16 @@ body {
 
 .service-banner-inner p {
   margin: 0;
+}
+
+@media (min-width: 761px) {
+  .service-banner {
+    padding-top: 113px;
+  }
+
+  .service-banner-inner {
+    transform: translateY(-10%);
+  }
 }
 
 /* remove dark overlay */
@@ -1055,9 +1071,7 @@ body {
 
   .footer-badge-float {
     width: 120px;
-    margin-top: 16px;
-    margin-left: 0;
-    margin-right: 0;
+    margin: 16px auto 0;
   }
   
   /* Responsive mobile styles for newsletter */
@@ -1154,7 +1168,9 @@ body {
   <main class="hero">
     <header class="topbar">
       <div class="brand">
-        <img src="images/logo.svg" alt="Tim Pearson Counselling logo" />
+        <a href="index.html" aria-label="Back to home">
+          <img src="images/logo.svg" alt="Tim Pearson Counselling logo" />
+        </a>
       </div>
       <input type="checkbox" id="nav-toggle" class="nav-toggle" />
       <label class="nav-toggle-label" for="nav-toggle" aria-label="Toggle navigation">
@@ -1192,7 +1208,7 @@ An evidence-based counselling service using Acceptance and Commitment Therapy, C
         <p>
           With almost 30 years of experience as a registered nurse, I have worked alongside adults of
           all ages through complex health conditions, cardiovascular care, palliative journeys, and the
-          profound experience of loss. These years have shaped the way I practise counselling — grounded
+          profound experience of loss. These years have shaped the way I practise counselling that is grounded
           in compassion, collaboration, empathy, and trust.
         </p>
         <p>
@@ -1204,14 +1220,14 @@ An evidence-based counselling service using Acceptance and Commitment Therapy, C
           of today's demanding world.
         </p>
         <p>
-          I work as a counsellor at Pivot Practice, offering face-to-face sessions in central Adelaide,
+          I work as a counsellor at Pivot Counselling & Training, offering face-to-face sessions in central Adelaide,
           while also providing counselling online across Australia.
         </p>
         <p>
           No matter your story, you don't have to face it alone. Together, we can create space for healing,
           clarity, hope, and a more fulfilling life.
         </p>
-        <a class="cta" href="#readmore">Read More</a>
+        <a class="cta" href="about.html">Read More</a>
       </article>
       <div class="intro-photo">
         <img src="images/self.jpeg" alt="Tim Pearson" />
@@ -1238,7 +1254,7 @@ An evidence-based counselling service using Acceptance and Commitment Therapy, C
       <p>
         Tim's counseling style is calm, collaborative, and practical. He works at your pace, creating a
         supportive space to explore challenges, make sense of experiences, and take meaningful steps
-        forward — whatever chapter of life you're in.
+        forward, whatever chapter of life you're in.
       </p>
     </div>
   </section>
@@ -1322,11 +1338,11 @@ An evidence-based counselling service using Acceptance and Commitment Therapy, C
         </div>
         <h3 class="media-title">Music</h3>
         <p class="media-text">
-          Music is one way I process pain; this is a song I wrote called Walk Away --
+          Music is one way I process pain; this is a song I wrote called Walk Away -
           please excuse profanity.
         </p>
-        <a class="media-play" href="#" data-href="MUSIC.mp3" aria-label="Play music"></a>
-        <audio class="media-audio" src="MUSIC.mp3" preload="none"></audio>
+        <a class="media-play" href="#" data-href="audio/MUSIC.mp3" aria-label="Play music"></a>
+        <audio class="media-audio" src="audio/MUSIC.mp3" preload="none"></audio>
       </article>
       <article class="media-card">
         <div class="media-thumb">
@@ -1337,8 +1353,8 @@ An evidence-based counselling service using Acceptance and Commitment Therapy, C
           This recorded manifesto is my way of explaining how I work and what you can expect
           if we work together.
         </p>
-        <a class="media-play" href="#" data-href="manifesto.mp3" aria-label="Play manifesto"></a>
-        <audio class="media-audio" src="manifesto.mp3" preload="none"></audio>
+        <a class="media-play" href="#" data-href="audio/manifesto.mp3" aria-label="Play manifesto"></a>
+        <audio class="media-audio" src="audio/manifesto.mp3" preload="none"></audio>
       </article>
       <article class="media-card">
         <div class="media-thumb">
@@ -1349,8 +1365,8 @@ An evidence-based counselling service using Acceptance and Commitment Therapy, C
           Feeling overwhelmed but short on time? This 3 minute mindfulnes exercise offers a pause to
           steady your body and mind.
         </p>
-        <a class="media-play" href="#" data-href="mindful.mp3" aria-label="Play meditation"></a>
-        <audio class="media-audio" src="mindful.mp3" preload="none"></audio>
+        <a class="media-play" href="#" data-href="audio/mindful.mp3" aria-label="Play meditation"></a>
+        <audio class="media-audio" src="audio/mindful.mp3" preload="none"></audio>
       </article>
     </div>
   </section>
@@ -1489,7 +1505,7 @@ An evidence-based counselling service using Acceptance and Commitment Therapy, C
       </p>
       <form
         class="newsletter-form"
-        action="https://gmail.us22.list-manage.com/subscribe/post?u=0f29543d55c2bf69196b429d4&amp;id=c130dfe39f&amp;f_id=0082c2e1f0"
+        action="https://gmail.us19.list-manage.com/subscribe/post?u=6de2c0fffec751387134930e2&amp;id=caef143b96&amp;f_id=003c40e4f0"
         method="post"
         target="mc_hidden_iframe"
         onsubmit="return handleNewsletterSubmit();"
@@ -1504,7 +1520,7 @@ An evidence-based counselling service using Acceptance and Commitment Therapy, C
           aria-label="Email address for newsletter"
         />
         <div style="position: absolute; left: -5000px;" aria-hidden="true">
-          <input type="text" name="b_0f29543d55c2bf69196b429d4_c130dfe39f" tabindex="-1" value="" />
+          <input type="text" name="b_6de2c0fffec751387134930e2_caef143b96" tabindex="-1" value="" />
         </div>
         <button type="submit" class="newsletter-button">Subscribe</button>
       </form>
@@ -1524,9 +1540,11 @@ An evidence-based counselling service using Acceptance and Commitment Therapy, C
     <div class="footer-inner">
       <div class="footer-grid">
         <div class="footer-section">
-          <img src="images/logo.svg" alt="Tim Pearson Counselling" class="footer-logo" />
+          <a href="index.html" aria-label="Back to home">
+            <img src="images/logo.svg" alt="Tim Pearson Counselling" class="footer-logo" />
+          </a>
           <p class="footer-text">
-            A compassionate counselling service based in Adelaide, <br> offering both face-to-face and online sessions across Australia.
+            A counselling service based in Adelaide, <br> offering both face-to-face and online sessions across Australia.
           </p>
         </div>
         <div class="footer-section">
@@ -1652,3 +1670,4 @@ An evidence-based counselling service using Acceptance and Commitment Therapy, C
   </script>
 </body>
 </html>
+
