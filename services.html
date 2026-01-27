@@ -1,0 +1,1177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Services - Tim Pearson Counselling</title>
+  <style>
+    :root {
+      --sans: "Gill Sans", "Helvetica Neue", Arial, sans-serif;
+      --title: "Georgia", "Times New Roman", serif;
+      --typewriter: "Courier New", Courier, "Lucida Console", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: #fff;
+      font-family: var(--sans);
+      background: #141414;
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 18px 28px;
+      position: relative;
+      background: #141414 url("images/service.jpg") center / cover no-repeat;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .topbar {
+      position: absolute;
+      top: 18px;
+      left: 28px;
+      right: 28px;
+      min-height: 120px;
+      z-index: 2;
+    }
+
+    .brand {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      letter-spacing: 0.5px;
+    }
+
+    .brand img {
+      width: 220px;
+      height: auto;
+    }
+
+    .nav {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      gap: 28px;
+      font-family: var(--sans);
+      text-transform: uppercase;
+      font-size: 18px;
+      letter-spacing: 1.2px;
+    }
+
+    .nav-toggle {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+    }
+
+    .nav-toggle-label {
+      display: none;
+      width: 48px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: transparent url("images/hamburger.svg?v=2") center / 32px 32px no-repeat;
+      cursor: pointer;
+    }
+
+    .nav-toggle-label span {
+      display: none;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav a.active {
+      border-bottom: 2px solid #fff;
+      padding-bottom: 4px;
+    }
+
+    .hero-content {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-family: var(--sans);
+      font-size: clamp(40px, 9vw, 110px);
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      margin: 0;
+      text-align: center;
+      text-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
+      width: 100%;
+    }
+
+    /* Updated counselling section to match image.png exactly */
+    .counselling-section {
+      background: #f5f1eb;
+      color: #1a1a1a;
+      padding: 92px 86px 64px;
+    }
+
+    .counselling-grid {
+      display: flex;
+      gap: 84px;
+      max-width: 1260px;
+      margin: 0 auto;
+      align-items: flex-start;
+    }
+
+    .counselling-image-wrapper {
+      flex: 0 0 480px;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .counselling-image {
+      width: 100%;
+      height: 580px;
+      display: block;
+      object-fit: cover;
+      filter: grayscale(100%);
+    }
+
+    .counselling-content {
+      flex: 1;
+      padding-top: 6px;
+      max-width: 660px;
+    }
+
+    .counselling-content h2 {
+      font-family: var(--typewriter);
+      font-size: 34px;
+      text-transform: uppercase;
+      letter-spacing: 2.8px;
+      margin: 0 0 26px 0;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-weight: 700;
+    }
+
+    .counselling-content p {
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.9;
+      text-align: left;
+      margin: 0 0 22px 0;
+    }
+
+    .counselling-content .focus-title {
+      font-family: var(--sans);
+      font-size: 17px;
+      font-weight: 700;
+      margin: 30px 0 16px 0;
+    }
+
+    .counselling-content ul {
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.9;
+      margin: 0;
+      padding-left: 28px;
+    }
+
+    .counselling-content li {
+      margin-bottom: 6px;
+    }
+
+    .approach-section {
+      background: #f5f1eb;
+      color: #1a1a1a;
+      padding: 64px 86px 100px;
+    }
+
+    .approach-grid {
+      display: flex;
+      gap: 84px;
+      max-width: 1260px;
+      margin: 0 auto;
+      align-items: flex-start;
+    }
+
+    .approach-image-wrapper {
+      flex: 0 0 480px;
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.12);
+    }
+
+    .approach-image {
+      width: 100%;
+      height: 580px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .approach-content {
+      flex: 1;
+      padding-top: 6px;
+      max-width: 660px;
+    }
+
+    .approach-content h2 {
+      font-family: var(--typewriter);
+      font-size: 34px;
+      text-transform: uppercase;
+      letter-spacing: 2.8px;
+      margin: 0 0 26px 0;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-weight: 700;
+    }
+
+    .approach-content p {
+      font-family: var(--sans);
+      font-size: 17px;
+      line-height: 1.9;
+      text-align: left;
+      margin: 0 0 26px 0;
+    }
+
+    .approach-cards {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      margin-top: 8px;
+    }
+
+    .approach-card {
+      background: #fdfbf6;
+      border: 1px solid #e6dfd3;
+      padding: 26px 26px 22px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .approach-card h3 {
+      font-family: var(--typewriter);
+      font-size: 22px;
+      margin: 0 0 16px;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+    }
+
+    .approach-card ul {
+      margin: 0;
+      padding-left: 24px;
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .approach-card li {
+      margin-bottom: 12px;
+    }
+
+    .approach-cta-wrap {
+      margin-top: 32px;
+      text-align: center;
+    }
+
+    .approach-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 30px;
+      border: 2px solid #1b1b1b;
+      background: #fdfbf6;
+      color: #1b1b1b;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1.4px;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 999px;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .approach-cta:hover {
+      background: #1b1b1b;
+      border-color: #1b1b1b;
+      color: #fff;
+    }
+
+    .faq-section {
+      background: #1b1b1b;
+      padding: 80px 32px 90px;
+      color: #f5f5f5;
+    }
+
+    .faq-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .faq-heading {
+      font-family: var(--typewriter);
+      font-size: 38px;
+      font-weight: 700;
+      margin: 0 0 48px;
+      color: #fff;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .faq-item:first-child {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: transparent;
+      border: none;
+      padding: 24px 48px 24px 0;
+      font-family: var(--sans);
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      text-align: left;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s ease;
+    }
+
+    .faq-question:hover {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .faq-question::after {
+      content: "+";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.7);
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question::after {
+      content: "-";
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer p {
+      margin: 0;
+      padding: 0 0 24px;
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .newsletter-section {
+      background: #f5f1ea;
+      padding: 80px 0 90px;
+      text-align: center;
+      position: relative;
+      color: #1b1b1b;
+    }
+
+    .newsletter-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .newsletter-heading {
+      font-family: var(--typewriter);
+      font-size: 38px;
+      font-weight: 700;
+      margin: 0 0 16px;
+      color: #1b1b1b;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+    }
+
+    .newsletter-description {
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 0 0 36px;
+      color: rgba(27, 27, 27, 0.8);
+      font-family: var(--sans);
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 12px;
+      max-width: 540px;
+      margin: 0 auto;
+      align-items: stretch;
+    }
+
+    .newsletter-input {
+      flex: 1;
+      padding: 14px 18px;
+      border: 2px solid #1b1b1b;
+      background: #fdfbf6;
+      color: #1b1b1b;
+      font-family: var(--sans);
+      font-size: 16px;
+      border-radius: 0;
+      transition: all 0.2s ease;
+      box-shadow: none;
+    }
+
+    .newsletter-input:focus {
+      outline: none;
+      border-color: #0b4f55;
+      box-shadow: 0 0 0 1px #0b4f55;
+    }
+
+    .newsletter-input::placeholder {
+      color: rgba(27, 27, 27, 0.45);
+    }
+
+    .newsletter-button {
+      padding: 14px 32px;
+      border: 2px solid #1b1b1b;
+      background: #1b1b1b;
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      border-radius: 0;
+      white-space: nowrap;
+      box-shadow: none;
+    }
+
+    .newsletter-button:hover {
+      background: #0b4f55;
+      border-color: #0b4f55;
+      transform: translateY(-1px);
+    }
+
+    .newsletter-success {
+      margin: 16px 0 0;
+      font-size: 20px;
+      color: rgba(27, 27, 27, 0.7);
+      font-family: var(--sans);
+      display: none;
+    }
+
+  .footer {
+    background: #1b1b1b;
+    color: #f5f5f5;
+    padding: 64px 0 32px;
+    font-family: var(--sans);
+    position: relative;
+  }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-section {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      width: 180px;
+      height: auto;
+      margin-bottom: 8px;
+    }
+
+    .footer-heading {
+      font-family: var(--sans);
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      color: #fff;
+    }
+
+    .footer-subheading {
+      font-family: var(--sans);
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin: 0 0 12px;
+      color: #fff;
+    }
+
+    .footer-text {
+      font-size: 15px;
+      line-height: 1.7;
+      margin: 0;
+      color: rgba(245, 245, 245, 0.85);
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-nav a {
+      color: rgba(245, 245, 245, 0.85);
+      text-decoration: none;
+      font-size: 15px;
+      transition: color 0.2s ease;
+    }
+
+    .footer-nav a:hover {
+      color: #fff;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-contact p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.6;
+      color: rgba(245, 245, 245, 0.85);
+    }
+
+    .footer-contact a {
+      color: rgba(245, 245, 245, 0.85);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-contact a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      padding-top: 32px;
+      border-top: 1px solid rgba(245, 245, 245, 0.15);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-bottom p {
+      margin: 0;
+      font-size: 14px;
+      color: rgba(245, 245, 245, 0.7);
+    }
+
+    .footer-legal {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .footer-legal a {
+      color: rgba(245, 245, 245, 0.7);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-legal a:hover {
+      color: #fff;
+    }
+
+  .footer-legal span {
+    color: rgba(245, 245, 245, 0.4);
+  }
+
+  .footer-badge-float {
+    width: 160px;
+    height: auto;
+    display: block;
+    margin: 24px 32px 0 auto;
+  }
+
+    @media (max-width: 760px) {
+      .hero {
+        padding: 28px 22px;
+      }
+
+      .topbar {
+        position: relative;
+        top: 0;
+        left: 0;
+        right: 0;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        width: 100%;
+      }
+
+      .brand,
+      .nav {
+        position: static;
+      }
+
+      .nav {
+        position: absolute;
+        top: 56px;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-end;
+        padding: 0;
+        background: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        min-width: 0;
+        backdrop-filter: none;
+      }
+
+      .nav a {
+        display: inline-block;
+        width: auto;
+        font-size: 16px;
+        letter-spacing: 0.8px;
+        padding: 0;
+        border-radius: 0;
+        transition: color 0.2s ease;
+      }
+
+      .nav a.active {
+        border-bottom: 2px solid #fff;
+        padding-bottom: 4px;
+        background: none;
+      }
+
+      .nav a:hover {
+        background: none;
+      }
+
+      .nav-toggle-label {
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+      }
+
+      .nav-toggle:checked ~ .nav {
+        display: flex;
+      }
+
+      .hero-title {
+        letter-spacing: 3px;
+      }
+
+      .counselling-section {
+        padding: 36px 24px 28px;
+      }
+
+      .counselling-grid {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .counselling-image-wrapper {
+        flex: none;
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .counselling-image {
+        height: 420px;
+      }
+
+      .counselling-content h2 {
+        font-size: 20px;
+        letter-spacing: 2px;
+      }
+
+      .approach-section {
+        padding: 28px 24px 56px;
+      }
+
+      .approach-grid {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .approach-image-wrapper {
+        flex: none;
+        width: 100%;
+        max-width: 320px;
+      }
+
+      .approach-image {
+        height: 420px;
+      }
+
+      .approach-content h2 {
+        font-size: 20px;
+        letter-spacing: 2px;
+      }
+
+      .approach-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .approach-cta {
+        width: 100%;
+      }
+
+      .newsletter-section {
+        padding: 56px 0 64px;
+      }
+
+      .newsletter-inner {
+        padding: 0 22px;
+      }
+
+      .newsletter-heading {
+        font-size: 28px;
+        margin-bottom: 14px;
+      }
+
+      .newsletter-description {
+        font-size: 16px;
+        margin-bottom: 28px;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .newsletter-button {
+        width: 100%;
+        padding: 15px 32px;
+      }
+
+      .faq-section {
+        padding: 56px 22px 64px;
+      }
+
+      .faq-heading {
+        font-size: 28px;
+        margin-bottom: 36px;
+      }
+
+      .faq-question {
+        font-size: 16px;
+        padding: 20px 40px 20px 0;
+      }
+
+      .faq-answer p {
+        font-size: 15px;
+      }
+
+      .footer {
+        padding: 48px 0 32px;
+      }
+
+      .footer-inner {
+        padding: 0 22px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 32px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 24px;
+      }
+
+    .footer-legal {
+      flex-wrap: wrap;
+    }
+
+    .footer-badge-float {
+      width: 120px;
+      margin-top: 16px;
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  @media (min-width: 1600px) {
+    .footer-badge-float {
+      position: absolute;
+      top: 80px;
+      right: 32px;
+      margin: 0;
+    }
+  }
+</style>
+</head>
+<body>
+  <main class="hero">
+    <header class="topbar">
+      <div class="brand">
+        <img src="images/logo.svg" alt="Tim Pearson Counselling logo" />
+      </div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label class="nav-toggle-label" for="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+      </label>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html" class="active">Services</a>
+        <a href="#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <div class="hero-content">
+      <h1 class="hero-title">Services</h1>
+    </div>
+  </main>
+
+  <!-- Updated section to match image.png exactly with arrow.svg -->
+  <section class="counselling-section">
+    <div class="counselling-grid">
+      <div class="counselling-image-wrapper">
+        <img 
+          src="images/image.png" 
+          alt="Supportive hands clasped together" 
+          class="counselling-image"
+        />
+      </div>
+      <div class="counselling-content">
+        <h2>COUNSELLING SERVICES</h2>
+        <p>
+          Counselling provides a safe, confidential space to explore life's challenges 
+          collaboratively, build understanding, and develop practical strategies that 
+          support meaningful change and personal growth.
+        </p>
+        <p>
+          I am a Psychotherapy and Counselling Federation of Australia (PACFA)-accredited 
+          counsellor with a Master of Counselling Practice. I am passionate about supporting 
+          people to move forward with greater meaning, purpose, and wellbeing.
+        </p>
+        <p class="focus-title">My areas of focus include:</p>
+        <ul>
+          <li>Anxiety and stress management</li>
+          <li>Grief and loss</li>
+          <li>Finding meaning and purpose</li>
+          <li>Body image</li>
+          <li>Building healthy relationships</li>
+          <li>Navigating separation, divorce, and custody challenges</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="approach-section">
+    <div class="approach-grid">
+      <div class="approach-image-wrapper">
+        <img 
+          src="images/tim.jpeg" 
+          alt="Tim Pearson during a counselling session" 
+          class="approach-image"
+        />
+      </div>
+      <div class="approach-content">
+        <h2>MY APPROACH</h2>
+        <p>
+          I draw on a range of evidence-based counselling approaches, including Acceptance 
+          and Commitment Therapy (ACT), Cognitive Behavioural Therapy (CBT), and 
+          Emotionally Focused Therapy (EFT). Most importantly, our work is collaborative — 
+          shaped around what suits you best and supports your individual needs and goals.
+        </p>
+        <div class="approach-cards">
+          <article class="approach-card">
+            <h3>In-person sessions</h3>
+            <ul>
+              <li>Sessions are 60 minutes and charged at $120</li>
+              <li>Available Thursdays and Fridays, 9:00 am – 5:00 pm</li>
+              <li>Located at Pivot Counselling, 37 Angas Street, Adelaide SA 5000</li>
+            </ul>
+          </article>
+          <article class="approach-card">
+            <h3>Online sessions</h3>
+            <ul>
+              <li>Sessions are 60 minutes and charged at $120</li>
+              <li>Available Thursdays and Fridays, 9:00 am – 5:00 pm</li>
+              <li>Delivered via Zoom</li>
+              <li>Available Australia-wide</li>
+            </ul>
+          </article>
+        </div>
+        <div class="approach-cta-wrap">
+          <a class="approach-cta" href="contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" id="faq">
+    <div class="faq-inner">
+      <h2 class="faq-heading">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            Do you see men and women?
+          </button>
+          <div class="faq-answer">
+            <p>
+              Absolutely! I see men and women over the age of 18.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            What can I expect from the first session?
+          </button>
+          <div class="faq-answer">
+            <p>
+              You might be experiencing a bunch of thoughts and feelings about your first session, from worry and anxiety to excitement and hope. Whatever you're feeling, it's completely normal, and I'll do my best to help you feel comfortable and at ease. I'll send you an intake form to complete before our appointment so I can gather some basic information about you. However, our first session is all about you - exploring where you're at and what you want to get from our time together.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            How many sessions will I need?
+          </button>
+          <div class="faq-answer">
+            <p>
+              Great question! Everyone is different, and it really depends on what's happening in your life right now. You might need help with something specific and short-term, or with something that takes longer to work through. On average, 6-8 sessions are typical. I usually recommend starting with weekly or fortnightly sessions, and we'll check in regularly and adjust as needed. Just like your physical health, commitment to your mental well-being is important!
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            What are your fees?
+          </button>
+          <div class="faq-answer">
+            <p>
+              I charge $120 for a one-hour session.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            Do you provide online sessions?
+          </button>
+          <div class="faq-answer">
+            <p>
+              I sure do! I provide online services across Australia via Zoom.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            Can I use a Mental Health Care Plan (MFCP), Medicare, or Private Health Insurance to access your services?
+          </button>
+          <div class="faq-answer">
+            <p>
+              Mental health care plans are for eligible mental health professionals such as psychologists, social workers and occupational therapists. Unfortunately, my qualifications and registration as a counsellor are not covered by Medicare or a MHCP. At this stage, I am unable to provide Private Health Care rebates.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            What about my privacy &amp; confidentiality?
+          </button>
+          <div class="faq-answer">
+            <p>
+              I take your privacy seriously and am committed to complying with the Australian Privacy Principles in the Privacy Act 1988 (Cth). Your right to privacy encompasses confidentiality. Information discussed during our sessions is confidential and will not be shared without your written permission, except when I am legally obliged: a) to report a serious and imminent threat to the life, health, or property of yourself or another, b) to report any abuse or neglect experienced by a young person under 18, and/or c) to release client records when required by court order. Confidential written records are maintained to reflect the issues and goals identified in counselling sessions and are securely stored for seven years. You may request access to your personal information at any time. For more information about my privacy policy, please click here.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            What if I need to speak with you after hours, or it's an emergency?
+          </button>
+          <div class="faq-answer">
+            <p>
+              I am unavailable after business hours and do not provide a crisis service. If there is an emergency, please contact:
+            </p>
+            <ul>
+              <li>Your doctor, or the emergency section of your local hospital</li>
+              <li>Lifeline on 13 11 14, or the Mental Health Triage Service on 13 14 65</li>
+            </ul>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            What if I run into you in the street?
+          </button>
+          <div class="faq-answer">
+            <p>
+              It certainly is a small world, and there's always a possibility we might run into each other outside of the counselling setting. If this happens, your confidentiality remains my priority. I'm not being rude, but I won't acknowledge you. Of course, if you say hi, I'll respond!
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            What are your qualifications?
+          </button>
+          <div class="faq-answer">
+            <p>
+              I hold a Master of Counselling Practice, a Bachelor of Nursing, and a Graduate Diploma in Cardiac Nursing. I am a certified practising counsellor with the Psychotherapy and Counselling Federation of Australia (PACFA) and a registered nurse with the Australian Health Practitioner Regulation Agency (AHPRA).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="newsletter-section">
+    <div class="newsletter-inner">
+      <h2 class="newsletter-heading">Stay Connected</h2>
+      <p class="newsletter-description">
+        Sign up for my newsletter to receive insights, tips, and updates on mental health and wellbeing.
+      </p>
+      <form
+        class="newsletter-form"
+        action="https://gmail.us22.list-manage.com/subscribe/post?u=0f29543d55c2bf69196b429d4&amp;id=c130dfe39f&amp;f_id=0082c2e1f0"
+        method="post"
+        target="mc_hidden_iframe"
+        onsubmit="return handleNewsletterSubmit();"
+        novalidate
+      >
+        <input
+          type="email"
+          name="EMAIL"
+          class="newsletter-input"
+          placeholder="Enter your email address"
+          required
+          aria-label="Email address for newsletter"
+        />
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+          <input type="text" name="b_0f29543d55c2bf69196b429d4_c130dfe39f" tabindex="-1" value="" />
+        </div>
+        <button type="submit" class="newsletter-button">Subscribe</button>
+      </form>
+      <iframe
+        title="Mailchimp signup"
+        name="mc_hidden_iframe"
+        id="mc_hidden_iframe"
+        style="display: none;"
+      ></iframe>
+      <p class="newsletter-success" id="newsletter-success" role="status" aria-live="polite">
+        Thanks for subscribing.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <img src="images/logo.svg" alt="Tim Pearson Counselling" class="footer-logo" />
+          <p class="footer-text">
+            A compassionate counselling service based in Adelaide <br> Offering both face-to-face and online sessions across Australia.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-subheading">Quick Links</h3>
+          <nav class="footer-nav" aria-label="Footer">
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="#faq">FAQ</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-subheading">Contact</h3>
+          <div class="footer-contact">
+            <p><a href="tel:+61411046414">+61 411 046 414</a></p>
+            <p><a href="mailto:timpearsoncounselling@gmail.com">timpearsoncounselling@gmail.com</a></p>
+            <p>Adelaide, SA</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Tim Pearson Counselling. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <span>|</span>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+    <img src="images/cpc.png" alt="Registered therapy badge" class="footer-badge-float" />
+  </footer>
+
+  <script>
+    function handleNewsletterSubmit() {
+      var message = document.getElementById("newsletter-success");
+      if (message) {
+        message.style.display = "block";
+      }
+      return true;
+    }
+
+    function toggleFaq(button) {
+      var item = button.parentElement;
+      var isActive = item.classList.contains("active");
+
+      document.querySelectorAll(".faq-item").forEach(function(el) {
+        el.classList.remove("active");
+        el.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+      });
+
+      if (!isActive) {
+        item.classList.add("active");
+        button.setAttribute("aria-expanded", "true");
+      }
+    }
+  </script>
+</body>
+</html>

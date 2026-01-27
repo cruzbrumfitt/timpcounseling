@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Terms of Service | Tim Pearson Counselling</title>
+  <style>
+    :root {
+      --sans: "Gill Sans", "Helvetica Neue", Arial, sans-serif;
+      --title: "Georgia", "Times New Roman", serif;
+      --typewriter: "Courier New", Courier, "Lucida Console", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: #1b1b1b;
+      font-family: var(--sans);
+      background: #f5f1ea;
+    }
+
+    .hero {
+      padding: 28px 28px 18px;
+      background: #141414 url("images/background.svg") center / cover no-repeat;
+      color: #fff;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 120px;
+    }
+
+    .brand img {
+      width: 200px;
+      height: auto;
+      display: block;
+    }
+
+    .nav {
+      display: flex;
+      gap: 24px;
+      text-transform: uppercase;
+      font-size: 16px;
+      letter-spacing: 1.2px;
+    }
+
+    .nav-toggle {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      opacity: 0;
+    }
+
+    .nav-toggle-label {
+      display: none;
+      width: 48px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background: transparent url("images/hamburger.svg?v=2") center / 32px 32px no-repeat;
+      cursor: pointer;
+    }
+
+    .nav-toggle-label span {
+      display: none;
+    }
+
+    .nav a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .nav a.active {
+      border-bottom: 2px solid #fff;
+      padding-bottom: 4px;
+    }
+
+    .page-title {
+      margin: 60px 0 24px;
+      font-family: var(--typewriter);
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 1px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 56px 28px 80px;
+      line-height: 1.8;
+      font-size: 16px;
+    }
+
+    .content h2 {
+      font-family: var(--typewriter);
+      font-size: 22px;
+      margin: 32px 0 12px;
+      letter-spacing: 1px;
+    }
+
+    .content p {
+      margin: 0 0 16px;
+    }
+
+    .content ul {
+      margin: 0 0 16px 20px;
+      padding: 0;
+    }
+
+    .footer {
+      background: #1b1b1b;
+      color: #f5f5f5;
+      padding: 32px 0 40px;
+      font-size: 14px;
+      position: relative;
+    }
+
+    .footer-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer-left {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .footer-left p {
+      margin: 0;
+    }
+
+    .footer a {
+      color: rgba(245, 245, 245, 0.8);
+      text-decoration: none;
+    }
+
+    .footer-badge-float {
+      width: 160px;
+      height: auto;
+      display: block;
+      margin: 24px 32px 0 auto;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        padding: 28px 22px 18px;
+      }
+
+      .topbar {
+        position: relative;
+        flex-direction: column;
+        align-items: flex-start;
+        min-height: 0;
+        gap: 16px;
+        width: 100%;
+      }
+
+      .nav {
+        position: absolute;
+        top: 56px;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-end;
+        padding: 0;
+        background: none;
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        min-width: 0;
+        backdrop-filter: none;
+      }
+
+      .nav a {
+        display: inline-block;
+        width: auto;
+        font-size: 16px;
+        letter-spacing: 0.8px;
+        padding: 0;
+        border-radius: 0;
+        transition: color 0.2s ease;
+      }
+
+      .nav a.active {
+        border-bottom: 2px solid #fff;
+        padding-bottom: 4px;
+        background: none;
+      }
+
+      .nav a:hover {
+        background: none;
+      }
+
+      .nav-toggle-label {
+        display: flex;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+      }
+
+      .nav-toggle:checked ~ .nav {
+        display: flex;
+      }
+
+      .content {
+        padding: 40px 22px 64px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-badge-float {
+        width: 120px;
+        margin-top: 16px;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    @media (min-width: 1600px) {
+      .footer-badge-float {
+        position: absolute;
+        top: 80px;
+        right: 32px;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="topbar">
+      <a class="brand" href="index.html">
+        <img src="images/logo.svg" alt="Tim Pearson Counselling logo" />
+      </a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label class="nav-toggle-label" for="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+      </label>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="index.html#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <h1 class="page-title">Terms of Service</h1>
+  </header>
+
+  <main class="content">
+    <p>
+      These Terms of Service govern your use of this website. By using this site, you agree to these terms.
+    </p>
+
+    <h2>Website Use</h2>
+    <ul>
+      <li>This website provides general information and is not a substitute for professional advice.</li>
+      <li>You agree not to misuse the site or attempt to disrupt its operation.</li>
+    </ul>
+
+    <h2>Appointments and Services</h2>
+    <p>
+      Booking policies, fees, and availability are communicated directly when you make contact. Any
+      cancellations or changes should be arranged as early as possible.
+    </p>
+
+    <h2>Intellectual Property</h2>
+    <p>
+      All content on this site is the property of Tim Pearson Counselling unless otherwise noted.
+      You may not reproduce or distribute content without permission.
+    </p>
+
+    <h2>Limitation of Liability</h2>
+    <p>
+      This website is provided on an "as is" basis. We do not guarantee that the site will be error-free
+      or uninterrupted.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Email: <a href="mailto:timpearsoncounselling@gmail.com">timpearsoncounselling@gmail.com</a>
+    </p>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-left">
+        <p>&copy; 2026 Tim Pearson Counselling. All rights reserved.</p>
+        <p>
+          <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a>
+        </p>
+      </div>
+    </div>
+    <img src="images/cpc.png" alt="Registered therapy badge" class="footer-badge-float" />
+  </footer>
+</body>
+</html>

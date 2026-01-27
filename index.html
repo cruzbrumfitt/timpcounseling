@@ -1,0 +1,1654 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tim Pearson Counselling</title>
+<style>
+  :root {
+  --sans: "Gill Sans", "Helvetica Neue", Arial, sans-serif;
+  --title: "Georgia", "Times New Roman", serif;
+  --typewriter: "Courier New", Courier, "Lucida Console", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: #fff;
+  font-family: var(--sans);
+  background: #141414;
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 18px 28px;
+  position: relative;
+  background: #141414 url("images/background.svg") center / cover no-repeat;
+}
+
+.topbar {
+  position: relative;
+  min-height: 120px;
+}
+
+.brand {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  letter-spacing: 0.5px;
+}
+
+.brand img {
+  width: 220px;
+  height: auto;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.brand-text .name {
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.brand-text .role {
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.nav {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: 28px;
+  font-family: var(--sans);
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 1.2px;
+}
+
+.nav-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.nav-toggle-label {
+  display: none;
+  width: 48px;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent url("images/hamburger.svg?v=2") center / 32px 32px no-repeat;
+  cursor: pointer;
+}
+
+.nav-toggle-label span {
+  display: none;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav a.active {
+  border-bottom: 2px solid #fff;
+  padding-bottom: 4px;
+}
+
+.tagline {
+  position: absolute;
+  right: 28px;
+  bottom: 44px;
+  font-family: var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1.4;
+  font-size: 22px;
+  text-align: right;
+  max-width: 520px;
+}
+
+.intro {
+  background: #f5f1ea;
+  color: #1b1b1b;
+  padding: 56px 32px;
+}
+
+.intro-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(240px, 0.9fr);
+  gap: 32px;
+  align-items: stretch;
+}
+
+.intro-card {
+  background: #fdfbf6;
+  border: 2px solid #1b1b1b;
+  padding: 28px 30px 24px;
+  font-size: 18px;
+  line-height: 1.7;
+  box-shadow: none;
+}
+
+.intro-card h2 {
+  font-size: 26px;
+  margin: 0 0 16px;
+  font-family: var(--typewriter);
+}
+
+.intro-card p {
+  margin: 0 0 18px;
+}
+
+.intro-card .cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+  border: 2px solid #1b1b1b;
+  border-radius: 999px;
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #1b1b1b;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(8, 8, 8, 0.75);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.modal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-dialog {
+  background: #fdfbf6;
+  color: #1b1b1b;
+  border: 2px solid #1b1b1b;
+  box-shadow: none;
+  max-width: 760px;
+  width: min(92vw, 760px);
+  max-height: 80vh;
+  overflow: auto;
+  padding: 28px 30px 24px;
+  position: relative;
+}
+
+.modal-dialog h3 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+.modal-dialog p {
+  margin: 0 0 16px;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  border: 2px solid #1b1b1b;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-family: var(--sans);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #1b1b1b;
+  background: #fdfbf6;
+}
+
+.expertise {
+  background: #f5f1ea;
+  color: #1b1b1b;
+  padding: 80px 32px 100px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #f5f1ea url("images/background.jpg") center / cover no-repeat;
+}
+
+.testimonial {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 80px 32px 120px;
+  color: #1f1f1f;
+  background: #e6e6e6 url("images/testimonial.jpg") center / cover no-repeat;
+}
+
+.testimonial-inner {
+  max-width: 820px;
+  transform: translateY(-20vh);
+}
+
+.testimonial h2 {
+  font-family: var(--sans);
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 0 28px;
+  color: #2c2c2c;
+}
+
+.testimonial blockquote {
+  margin: 0;
+  font-family: var(--typewriter);
+  font-size: 20px;
+  line-height: 1.8;
+  color: #2c2c2c;
+}
+
+.testimonial-attribution {
+  margin: 26px 0 0;
+  font-family: var(--typewriter);
+  font-size: 20px;
+  color: #2c2c2c;
+}
+
+.intro,
+.expertise {
+  min-height: clamp(640px, 85vh, 900px);
+}
+
+.expertise {
+  min-height: 100vh;
+}
+
+.service-banner {
+  position: relative;
+  min-height: 100vh;
+  color: #1f1f1f;
+  display: grid;
+  place-items: start center;
+  text-align: center;
+  padding: 200px 24px 0;
+  background: #e6edf4 url("images/service.jpeg") center / cover no-repeat;
+}
+
+.service-banner-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  font-family: var(--typewriter);
+  font-size: clamp(18px, 2.1vw, 23px);
+  font-weight: 700;
+  line-height: 1.65;
+  letter-spacing: 0.2px;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  transform: none;
+}
+
+.service-banner-inner p {
+  margin: 0;
+}
+
+/* remove dark overlay */
+
+.expertise-inner {
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+.expertise h2 {
+  font-family: var(--typewriter);
+  font-size: 34px;
+  margin: 0 0 48px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.3;
+  color: #fff;
+}
+
+.expertise-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.expertise-card {
+  font-size: 16px;
+  line-height: 1.7;
+  background: #fdfbf6;
+  border: 2px solid #1b1b1b;
+  padding: 28px 30px 24px;
+  position: relative;
+  box-shadow: none;
+  text-align: center;
+}
+
+.expertise-card h3 {
+  font-size: 20px;
+  margin: 22px 0 16px;
+  font-family: var(--typewriter);
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: #1b1b1b;
+  line-height: 1.3;
+  min-height: 52px;
+}
+
+.expertise-card p {
+  margin: 0;
+  color: rgba(27, 27, 27, 0.8);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.expertise-icon {
+  width: 80px;
+  height: 80px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+}
+
+.expertise-icon img {
+  width: 64px;
+  height: 64px;
+  display: block;
+  opacity: 1;
+}
+
+.media-section {
+  background: #f7f4ef;
+  padding: 80px 36px 100px;
+  color: #1a1a1a;
+}
+
+.media-grid {
+  max-width: 1260px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+  text-align: center;
+}
+
+.media-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.media-thumb {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #e2ddd6;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+}
+
+.media-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.media-thumb.placeholder {
+  border: 2px solid #d4cdc3;
+}
+
+.media-title {
+  margin: 0;
+  font-family: var(--typewriter);
+  font-size: 22px;
+  text-transform: uppercase;
+  letter-spacing: 2.4px;
+}
+
+.media-text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.8;
+  max-width: 320px;
+}
+
+.media-play {
+  width: 56px;
+  height: 56px;
+  border: 2px solid #1a1a1a;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #1a1a1a;
+  position: relative;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.media-play::before {
+  content: "";
+  margin-left: 3px;
+  border-style: solid;
+  border-width: 8px 0 8px 14px;
+  border-color: transparent transparent transparent #1a1a1a;
+}
+
+.media-play:hover {
+  background: #eae5de;
+  transform: translateY(-1px);
+}
+
+.media-card.is-playing .media-play::before {
+  width: 6px;
+  height: 20px;
+  margin-left: 0;
+  border: none;
+  background: #1a1a1a;
+  border-radius: 1px;
+}
+
+.media-card.is-playing .media-play::after {
+  content: "";
+  width: 6px;
+  height: 20px;
+  margin-left: 6px;
+  background: #1a1a1a;
+  border-radius: 1px;
+}
+
+.media-audio {
+  display: none;
+}
+
+.intro-photo {
+  border: 2px solid #1b1b1b;
+  box-shadow: none;
+  overflow: hidden;
+  background: #e4e4e4;
+}
+
+.intro-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.footer {
+  background: #1b1b1b;
+  color: #f5f5f5;
+  padding: 64px 0 32px;
+  font-family: var(--sans);
+  position: relative;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* Added FAQ section styles */
+.faq-section {
+  background: #1b1b1b;
+  padding: 80px 32px 90px;
+  color: #f5f5f5;
+}
+
+.faq-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.faq-heading {
+  font-family: var(--typewriter);
+  font-size: 38px;
+  font-weight: 700;
+  margin: 0 0 48px;
+  color: #fff;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.faq-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.faq-item:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.faq-question {
+  width: 100%;
+  background: transparent;
+  border: none;
+  padding: 24px 48px 24px 0;
+  font-family: var(--sans);
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.faq-question:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::after {
+  content: "−";
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 300px;
+}
+
+.faq-answer p {
+  margin: 0;
+  padding: 0 0 24px;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Improved newsletter section with cleaner design matching the site aesthetic */
+.newsletter-section {
+  background: #f5f1ea;
+  padding: 80px 0 90px;
+  text-align: center;
+  position: relative;
+}
+
+.newsletter-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.newsletter-heading {
+  font-family: var(--typewriter);
+  font-size: 38px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  color: #1b1b1b;
+  letter-spacing: 0.5px;
+  line-height: 1.2;
+}
+
+.newsletter-description {
+  font-size: 18px;
+  line-height: 1.7;
+  margin: 0 0 36px;
+  color: rgba(27, 27, 27, 0.8);
+  font-family: var(--sans);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 12px;
+  max-width: 540px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 2px solid #1b1b1b;
+  background: #fdfbf6;
+  color: #1b1b1b;
+  font-family: var(--sans);
+  font-size: 16px;
+  border-radius: 0;
+  transition: all 0.2s ease;
+  box-shadow: none;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: #0b4f55;
+  box-shadow: 0 0 0 1px #0b4f55;
+}
+
+.newsletter-input::placeholder {
+  color: rgba(27, 27, 27, 0.45);
+}
+
+.newsletter-button {
+  padding: 14px 32px;
+  border: 2px solid #1b1b1b;
+  background: #1b1b1b;
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  border-radius: 0;
+  white-space: nowrap;
+  box-shadow: none;
+}
+
+.newsletter-button:hover {
+  background: #0b4f55;
+  border-color: #0b4f55;
+  transform: translateY(-1px);
+}
+
+.newsletter-success {
+  margin: 16px 0 0;
+  font-size: 20px;
+  color: rgba(27, 27, 27, 0.7);
+  font-family: var(--sans);
+  display: none;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.footer-logo { /* added logo styles */
+  width: 180px;
+  height: auto;
+  margin-bottom: 8px;
+}
+
+.footer-heading {
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #fff;
+}
+
+.footer-subheading {
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin: 0 0 12px;
+  color: #fff;
+}
+
+.footer-text {
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+  color: rgba(245, 245, 245, 0.85);
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-nav a {
+  color: rgba(245, 245, 245, 0.85);
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+
+.footer-nav a:hover {
+  color: #fff;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-contact p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(245, 245, 245, 0.85);
+}
+
+.footer-contact a {
+  color: rgba(245, 245, 245, 0.85);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-contact a:hover {
+  color: #fff;
+}
+
+.footer-bottom {
+  padding-top: 32px;
+  border-top: 1px solid rgba(245, 245, 245, 0.15);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 14px;
+  color: rgba(245, 245, 245, 0.7);
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.footer-legal a {
+  color: rgba(245, 245, 245, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-legal a:hover {
+  color: #fff;
+}
+
+.footer-legal span {
+  color: rgba(245, 245, 245, 0.4);
+}
+
+.footer-badge-float {
+  width: 160px;
+  height: auto;
+  display: block;
+  margin: 24px 32px 0 auto;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    padding: 28px 22px;
+  }
+
+  .topbar {
+    position: relative;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .brand,
+  .nav {
+    position: static;
+  }
+
+  .nav {
+    position: absolute;
+    top: 56px;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    min-width: 0;
+    backdrop-filter: none;
+  }
+
+  .nav a {
+    display: inline-block;
+    width: auto;
+    font-size: 16px;
+    letter-spacing: 0.8px;
+    padding: 0;
+    border-radius: 0;
+    transition: color 0.2s ease;
+  }
+
+  .nav a.active {
+    border-bottom: 2px solid #fff;
+    padding-bottom: 4px;
+    background: none;
+  }
+
+  .nav a:hover {
+    background: none;
+  }
+
+  .nav-toggle-label {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .nav-toggle:checked ~ .nav {
+    display: flex;
+  }
+
+  .tagline {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 28px;
+    margin: 0;
+    text-align: left;
+    max-width: 100%;
+    font-size: 20px;
+  }
+
+  .intro {
+    padding: 40px 22px 50px;
+  }
+
+  .intro-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-card {
+    box-shadow: none;
+  }
+
+  .intro-photo {
+    box-shadow: none;
+  }
+
+  .expertise {
+    padding: 72px 22px 96px;
+  }
+
+  .expertise h2 {
+    font-size: 26px;
+    margin-bottom: 44px;
+    text-align: center;
+  }
+
+  .expertise-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .expertise-card {
+    padding: 24px 26px 20px;
+    box-shadow: none;
+  }
+
+  .expertise-icon {
+    width: 68px;
+    height: 68px;
+  }
+
+  .expertise-icon img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .expertise-card h3 {
+    font-size: 19px;
+  }
+
+  .expertise-card p {
+    font-size: 15px;
+  }
+
+  .intro,
+  .expertise {
+    min-height: auto;
+  }
+
+  .media-section {
+    padding: 56px 18px 72px;
+  }
+
+  .media-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .media-thumb {
+    width: 190px;
+    height: 190px;
+  }
+
+  .media-title {
+    font-size: 19px;
+    letter-spacing: 1.8px;
+  }
+
+  .media-text {
+    font-size: 15px;
+  }
+
+  .testimonial {
+    padding: 70px 22px 90px;
+  }
+
+  .testimonial h2 {
+    font-size: 24px;
+    margin-bottom: 22px;
+  }
+
+  .testimonial blockquote,
+  .testimonial-attribution {
+    font-size: 18px;
+  }
+
+  .service-banner {
+    padding: 0 20px;
+    min-height: 100vh;
+  }
+
+  .footer {
+    padding: 48px 0 32px;
+  }
+
+  .footer-inner {
+    padding: 0 22px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    margin-bottom: 32px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 24px;
+  }
+
+  .footer-legal {
+    flex-wrap: wrap;
+  }
+
+  .footer-badge-float {
+    width: 120px;
+    margin-top: 16px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  /* Responsive mobile styles for newsletter */
+  .newsletter-section {
+    padding: 56px 0 64px;
+  }
+
+  .newsletter-inner {
+    padding: 0 22px;
+  }
+
+  .newsletter-heading {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+
+  .newsletter-description {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .newsletter-button {
+    width: 100%;
+    padding: 15px 32px;
+  }
+
+  /* Responsive FAQ styles */
+  .faq-section {
+    padding: 56px 22px 64px;
+  }
+
+  .faq-heading {
+    font-size: 28px;
+    margin-bottom: 36px;
+  }
+
+  .faq-question {
+    font-size: 16px;
+    padding: 20px 40px 20px 0;
+  }
+
+  .faq-answer p {
+    font-size: 15px;
+  }
+
+}
+
+@media (max-width: 1200px) {
+  .expertise-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .expertise-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 980px) {
+  .expertise-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .expertise-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 2000px) {
+  .expertise::before {
+    background-size: 2000px auto;
+  }
+}
+
+@media (min-width: 1600px) {
+  .footer-badge-float {
+    position: absolute;
+    top: 80px;
+    right: 32px;
+    margin: 0;
+  }
+}
+</style>
+</head>
+<body>
+  <main class="hero">
+    <header class="topbar">
+      <div class="brand">
+        <img src="images/logo.svg" alt="Tim Pearson Counselling logo" />
+      </div>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label class="nav-toggle-label" for="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+      </label>
+      <nav class="nav" aria-label="Primary">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="#faq">FAQ</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <div class="tagline">
+   Climbing life's mountains together...
+    </div>
+  </main>
+
+  <section class="service-banner" aria-labelledby="service-banner-text">
+    <div class="service-banner-inner">
+      <p id="service-banner-text">
+        <Br>
+        <br>
+      </Br>
+An evidence-based counselling service using Acceptance and Commitment Therapy, Cognitive Behavioural Therapy, and Emotionally Focused Therapy, focused on working with you to support your needs, values, and goals.
+      </p>
+    </div>
+  </section>
+
+  <section class="intro" id="about">
+    <div class="intro-inner">
+      <article class="intro-card">
+        <h2>Hey, I'm Tim, glad you're here...</h2>
+        <p>
+          With almost 30 years of experience as a registered nurse, I have worked alongside adults of
+          all ages through complex health conditions, cardiovascular care, palliative journeys, and the
+          profound experience of loss. These years have shaped the way I practise counselling — grounded
+          in compassion, collaboration, empathy, and trust.
+        </p>
+        <p>
+          I work with both men and women across a wide range of concerns. For men, this may include
+          exploring healthy masculinity, embracing fatherhood, or navigating the emotional and practical
+          realities of separation, divorce, and custody. For women, this may involve reconnecting with
+          yourself, untangling complex emotions, developing a healthier relationship with your body and
+          body image, processing past experiences in a safe and supportive space, or managing the pressures
+          of today's demanding world.
+        </p>
+        <p>
+          I work as a counsellor at Pivot Practice, offering face-to-face sessions in central Adelaide,
+          while also providing counselling online across Australia.
+        </p>
+        <p>
+          No matter your story, you don't have to face it alone. Together, we can create space for healing,
+          clarity, hope, and a more fulfilling life.
+        </p>
+        <a class="cta" href="#readmore">Read More</a>
+      </article>
+      <div class="intro-photo">
+        <img src="images/self.jpeg" alt="Tim Pearson" />
+      </div>
+    </div>
+  </section>
+
+  <section class="modal" id="readmore" aria-hidden="true">
+    <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="readmore-title">
+      <a class="modal-close" href="contact.html" aria-label="Close">Close</a>
+      <h3 id="readmore-title">More About Tim</h3>
+      <p>
+        Tim brings lived experience of separation and divorce, allowing him to offer grounded support to
+        those navigating relationship breakdowns, co-parenting, and major life transitions. He is deeply
+        passionate about helping men and women find meaning, purpose, and connection, while building
+        strong, healthy relationships with themselves and others.
+      </p>
+      <p>
+        When he's not working, Tim enjoys hiking, boogie boarding, playing music in a band, and spending
+        time with family and friends. He's also someone who once never believed meditation was for him —
+        until life convinced him otherwise. That shift reflects his broader approach to therapy: open,
+        curious, and grounded in what genuinely helps.
+      </p>
+      <p>
+        Tim's counseling style is calm, collaborative, and practical. He works at your pace, creating a
+        supportive space to explore challenges, make sense of experiences, and take meaningful steps
+        forward — whatever chapter of life you're in.
+      </p>
+    </div>
+  </section>
+
+  <section class="expertise" id="services">
+    <div class="expertise-inner">
+      <h2>Areas of expertise</h2>
+      <div class="expertise-grid">
+        <article class="expertise-card">
+          <span class="expertise-icon" aria-hidden="true">
+            <img src="icons/stress.svg" alt="" />
+          </span>
+          <h3>Anxiety &amp; stress management</h3>
+          <p>
+            I offer a calm, supportive space to understand anxiety, build practical coping strategies,
+            clarify what matters to you, and regain a sense of control, confidence, and balance in everyday life.
+          </p>
+        </article>
+        <article class="expertise-card">
+          <span class="expertise-icon" aria-hidden="true">
+            <img src="icons/grief.svg" alt="" />
+          </span>
+          <h3>Grief &amp; loss</h3>
+          <p>
+            Feel supported and heard as you navigate the pain of loss, with gentle strategies to process
+            grief at your own pace while continuing to live a meaningful, connected, and values-guided life.
+          </p>
+        </article>
+        <article class="expertise-card">
+          <span class="expertise-icon" aria-hidden="true">
+            <img src="icons/purpose.svg" alt="" />
+          </span>
+          <h3>Finding purpose &amp; meaning</h3>
+          <p>
+            When life feels uncertain or disconnected, I support you to reconnect with your values, regain
+            clarity, and take intentional steps toward a life that feels meaningful, purposeful, and aligned.
+          </p>
+        </article>
+        <article class="expertise-card">
+          <span class="expertise-icon" aria-hidden="true">
+            <img src="icons/heartbroken.svg" alt="" />
+          </span>
+          <h3>Separation, divorce &amp; custody</h3>
+          <p>
+            Drawing on professional and lived experience, I support individuals through separation, divorce,
+            and custody challenges by helping manage stress, navigate difficult decisions, regain control,
+            and move forward with confidence and empowerment.
+          </p>
+        </article>
+        <article class="expertise-card">
+          <span class="expertise-icon" aria-hidden="true">
+            <img src="icons/person.svg" alt="" />
+          </span>
+          <h3>Body Image</h3>
+          <p>
+            I support individuals to build self-compassion and acceptance for their bodies by gently challenging
+            unhelpful thoughts, fostering kindness toward yourself, and developing confidence, peace, and a
+            healthier relationship with your body.
+          </p>
+        </article>
+        <article class="expertise-card">
+          <span class="expertise-icon" aria-hidden="true">
+            <img src="icons/love.svg" alt="" />
+          </span>
+          <h3>Building healthy relationships</h3>
+          <p>
+            I help you strengthen communication, build confidence, navigate difficult conversations, manage
+            conflict, repair relationship ruptures, and create meaningful, healthy connections that feel
+            supportive, respectful, and aligned with your values.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="media-section" aria-label="More from Tim">
+    <div class="media-grid">
+      <article class="media-card">
+        <div class="media-thumb">
+          <img src="images/muisc.jpg" alt="Tim performing music" />
+        </div>
+        <h3 class="media-title">Music</h3>
+        <p class="media-text">
+          Music is one way I process pain; this is a song I wrote called Walk Away --
+          please excuse profanity.
+        </p>
+        <a class="media-play" href="#" data-href="MUSIC.mp3" aria-label="Play music"></a>
+        <audio class="media-audio" src="MUSIC.mp3" preload="none"></audio>
+      </article>
+      <article class="media-card">
+        <div class="media-thumb">
+          <img src="images/image.png" alt="Manifesto audio artwork" />
+        </div>
+        <h3 class="media-title">Manifesto</h3>
+        <p class="media-text">
+          This recorded manifesto is my way of explaining how I work and what you can expect
+          if we work together.
+        </p>
+        <a class="media-play" href="#" data-href="manifesto.mp3" aria-label="Play manifesto"></a>
+        <audio class="media-audio" src="manifesto.mp3" preload="none"></audio>
+      </article>
+      <article class="media-card">
+        <div class="media-thumb">
+          <img src="images/mindful.jpg" alt="Meditation moment" />
+        </div>
+        <h3 class="media-title">Mindful</h3>
+        <p class="media-text">
+          Feeling overwhelmed but short on time? This 3 minute mindfulnes exercise offers a pause to
+          steady your body and mind.
+        </p>
+        <a class="media-play" href="#" data-href="mindful.mp3" aria-label="Play meditation"></a>
+        <audio class="media-audio" src="mindful.mp3" preload="none"></audio>
+      </article>
+    </div>
+  </section>
+
+  <section class="testimonial" aria-labelledby="testimonial-title">
+    <div class="testimonial-inner">
+      <h2 id="testimonial-title">Client Testimonial</h2>
+      <blockquote>
+        "I didn't realise how much stress I was carrying all the time while going through separation. My body and
+        mind were constantly switched on. Tim really understood what I was dealing with and helped me slow down,
+        let go of some of that stress, and start rebuilding my life."
+      </blockquote>
+      <p class="testimonial-attribution">- Steve, 39</p>
+    </div>
+  </section>
+
+  <!-- Added FAQ section with 10 questions -->
+  <section class="faq-section" id="faq">
+    <div class="faq-inner">
+      <h2 class="faq-heading">Frequently Asked Questions</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            Do you see men and women?
+          </button>
+          <div class="faq-answer">
+            <p>
+              Absolutely! I see men and women over the age of 18.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            What can I expect from the first session?
+          </button>
+          <div class="faq-answer">
+            <p>
+              You might be experiencing a bunch of thoughts and feelings about your first session, from worry and anxiety to excitement and hope. Whatever you're feeling, it's completely normal, and I'll do my best to help you feel comfortable and at ease. I'll send you an intake form to complete before our appointment so I can gather some basic information about you. However, our first session is all about you - exploring where you're at and what you want to get from our time together.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            How many sessions will I need?
+          </button>
+          <div class="faq-answer">
+            <p>
+              Great question! Everyone is different, and it really depends on what's happening in your life right now. You might need help with something specific and short-term, or with something that takes longer to work through. On average, 6-8 sessions are typical. I usually recommend starting with weekly or fortnightly sessions, and we'll check in regularly and adjust as needed. Just like your physical health, commitment to your mental well-being is important!
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            What are your fees?
+          </button>
+          <div class="faq-answer">
+            <p>
+              I charge $120 for a one-hour session.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            Do you provide online sessions?
+          </button>
+          <div class="faq-answer">
+            <p>
+              I sure do! I provide online services across Australia via Zoom.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            Can I use a Mental Health Care Plan (MFCP), Medicare, or Private Health Insurance to access your services?
+          </button>
+          <div class="faq-answer">
+            <p>
+              Mental health care plans are for eligible mental health professionals such as psychologists, social workers and occupational therapists. Unfortunately, my qualifications and registration as a counsellor are not covered by Medicare or a MHCP. At this stage, I am unable to provide Private Health Care rebates.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            What about my privacy &amp; confidentiality?
+          </button>
+          <div class="faq-answer">
+            <p>
+              I take your privacy seriously and am committed to complying with the Australian Privacy Principles in the Privacy Act 1988 (Cth). Your right to privacy encompasses confidentiality. Information discussed during our sessions is confidential and will not be shared without your written permission, except when I am legally obliged: a) to report a serious and imminent threat to the life, health, or property of yourself or another, b) to report any abuse or neglect experienced by a young person under 18, and/or c) to release client records when required by court order. Confidential written records are maintained to reflect the issues and goals identified in counselling sessions and are securely stored for seven years. You may request access to your personal information at any time. For more information about my privacy policy, please click here.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            What if I need to speak with you after hours, or it's an emergency?
+          </button>
+          <div class="faq-answer">
+            <p>
+              I am unavailable after business hours and do not provide a crisis service. If there is an emergency, please contact:
+            </p>
+            <ul>
+              <li>Your doctor, or the emergency section of your local hospital</li>
+              <li>Lifeline on 13 11 14, or the Mental Health Triage Service on 13 14 65</li>
+            </ul>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            What if I run into you in the street?
+          </button>
+          <div class="faq-answer">
+            <p>
+              It certainly is a small world, and there's always a possibility we might run into each other outside of the counselling setting. If this happens, your confidentiality remains my priority. I'm not being rude, but I won't acknowledge you. Of course, if you say hi, I'll respond!
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+            What are your qualifications?
+          </button>
+          <div class="faq-answer">
+            <p>
+              I hold a Master of Counselling Practice, a Bachelor of Nursing, and a Graduate Diploma in Cardiac Nursing. I am a certified practising counsellor with the Psychotherapy and Counselling Federation of Australia (PACFA) and a registered nurse with the Australian Health Practitioner Regulation Agency (AHPRA).
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Improved newsletter section with warm cream background and clean typography -->
+  <section class="newsletter-section">
+    <div class="newsletter-inner">
+      <h2 class="newsletter-heading">Stay Connected</h2>
+      <p class="newsletter-description">
+        Sign up for my newsletter to receive insights, tips, and updates on mental health and wellbeing.
+      </p>
+      <form
+        class="newsletter-form"
+        action="https://gmail.us22.list-manage.com/subscribe/post?u=0f29543d55c2bf69196b429d4&amp;id=c130dfe39f&amp;f_id=0082c2e1f0"
+        method="post"
+        target="mc_hidden_iframe"
+        onsubmit="return handleNewsletterSubmit();"
+        novalidate
+      >
+        <input
+          type="email"
+          name="EMAIL"
+          class="newsletter-input"
+          placeholder="Enter your email address"
+          required
+          aria-label="Email address for newsletter"
+        />
+        <div style="position: absolute; left: -5000px;" aria-hidden="true">
+          <input type="text" name="b_0f29543d55c2bf69196b429d4_c130dfe39f" tabindex="-1" value="" />
+        </div>
+        <button type="submit" class="newsletter-button">Subscribe</button>
+      </form>
+      <iframe
+        title="Mailchimp signup"
+        name="mc_hidden_iframe"
+        id="mc_hidden_iframe"
+        style="display: none;"
+      ></iframe>
+      <p class="newsletter-success" id="newsletter-success" role="status" aria-live="polite">
+        Thanks for subscribing.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <img src="images/logo.svg" alt="Tim Pearson Counselling" class="footer-logo" />
+          <p class="footer-text">
+            A compassionate counselling service based in Adelaide, <br> offering both face-to-face and online sessions across Australia.
+          </p>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-subheading">Quick Links</h3>
+          <nav class="footer-nav" aria-label="Footer">
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="#faq">FAQ</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+        </div>
+        <div class="footer-section">
+          <h3 class="footer-subheading">Contact</h3>
+          <div class="footer-contact">
+            <p><a href="tel:+61411046414">+61 411 046 414</a></p>
+            <p><a href="mailto:timpearsoncounselling@gmail.com">timpearsoncounselling@gmail.com</a></p>
+            <p>Adelaide, SA</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Tim Pearson Counselling. All rights reserved.</p>
+      <div class="footer-legal">
+        <a href="privacy.html">Privacy Policy</a>
+        <span>|</span>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+      </div>
+    </div>
+    <img src="images/cpc.png" alt="Registered therapy badge" class="footer-badge-float" />
+  </footer>
+
+  <script>
+    function handleNewsletterSubmit() {
+      var message = document.getElementById("newsletter-success");
+      if (message) {
+        message.style.display = "block";
+      }
+      return true;
+    }
+
+    function toggleFaq(button) {
+      var item = button.parentElement;
+      var isActive = item.classList.contains("active");
+      
+      // Close all other FAQ items
+      document.querySelectorAll(".faq-item").forEach(function(el) {
+        el.classList.remove("active");
+        el.querySelector(".faq-question").setAttribute("aria-expanded", "false");
+      });
+      
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add("active");
+        button.setAttribute("aria-expanded", "true");
+      }
+    }
+
+    function initMediaPlayers() {
+      function setButtonState(button, isPlaying) {
+        if (!button) {
+          return;
+        }
+        var playLabel = button.getAttribute("data-play-label") || button.getAttribute("aria-label") || "Play audio";
+        if (!button.getAttribute("data-play-label")) {
+          button.setAttribute("data-play-label", playLabel);
+        }
+        var pauseLabel = button.getAttribute("data-pause-label") || playLabel.replace(/^Play /, "Pause ");
+        button.setAttribute("aria-label", isPlaying ? pauseLabel : playLabel);
+      }
+
+      document.querySelectorAll(".media-play").forEach(function(button) {
+        setButtonState(button, false);
+        button.addEventListener("click", function(event) {
+          event.preventDefault();
+          var card = button.closest(".media-card");
+          if (!card) {
+            return;
+          }
+          var audio = card.querySelector(".media-audio");
+          if (!audio) {
+            return;
+          }
+          if (!audio.getAttribute("src")) {
+            audio.src = button.getAttribute("data-href");
+          }
+          document.querySelectorAll(".media-audio").forEach(function(other) {
+            if (other !== audio) {
+              other.pause();
+              other.currentTime = 0;
+              var otherCard = other.closest(".media-card");
+              if (otherCard) {
+                otherCard.classList.remove("is-playing");
+                var otherButton = otherCard.querySelector(".media-play");
+                setButtonState(otherButton, false);
+              }
+            }
+          });
+          if (audio.paused) {
+            audio.play();
+            card.classList.add("is-playing");
+            setButtonState(button, true);
+          } else {
+            audio.pause();
+            card.classList.remove("is-playing");
+            setButtonState(button, false);
+          }
+        });
+      });
+
+      document.querySelectorAll(".media-audio").forEach(function(audio) {
+        audio.addEventListener("ended", function() {
+          var card = audio.closest(".media-card");
+          if (card) {
+            card.classList.remove("is-playing");
+            setButtonState(card.querySelector(".media-play"), false);
+          }
+        });
+      });
+    }
+
+    initMediaPlayers();
+  </script>
+</body>
+</html>
