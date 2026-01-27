@@ -426,7 +426,7 @@
   }
 
   .faq-item.active .faq-answer {
-    max-height: 300px;
+    max-height: 900px;
   }
 
   .faq-answer p {
@@ -892,7 +892,7 @@
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="PHONE" placeholder="Enter your phone number" required />
+            <input type="tel" id="phone" name="PHONE" placeholder="Enter your phone number (Optional)" />
           </div>
           <!-- removed Area of Interest select field -->
           <div class="form-group message-group">
@@ -921,7 +921,7 @@
         <div class="info-item">
           <h3>Location</h3>
           <p>Pivot Counselling and Training<br />37 Angas Street, Adelaide SA 5000</p>
-          <a class="cta-link" href="https://maps.google.com" target="_blank" rel="noopener">Get Directions →</a>
+          <a class="cta-link" href="https://maps.app.goo.gl/CC6ahbp9QAmx7E727" target="_blank" rel="noopener">Get Directions →</a>
         </div>
 
         <div class="info-item">
@@ -1156,6 +1156,11 @@
       if (message) {
         message.style.display = "block";
       }
+      window.setTimeout(function() {
+        if (form) {
+          form.reset();
+        }
+      }, 150);
       return true;
     }
 
